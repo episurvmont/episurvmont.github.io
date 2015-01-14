@@ -12,9 +12,9 @@
     <script src="code/data/layers/epi_zones.geojson" type="text/javascript"></script>
     <script src="code/data/layers/communities.geojson" type="text/javascript"></script>
     <script src="code/data/layers/roads.geojson" type="text/javascript"></script>
-    <script src="code/data/layers/mmu.geojson" type="text/javascript"></script>
-    <script src="code/data/data_per_day_mmu.geojson" type="text/javascript"></script>
-    <script src="code/data/data_cumulative_mmu.geojson" type="text/javascript"></script>
+    <script src="code/data/layers/etus.geojson" type="text/javascript"></script>
+    <script src="code/data/data_per_day.geojson" type="text/javascript"></script>
+    <script src="code/data/data_cumulative.geojson" type="text/javascript"></script>
     <link rel="stylesheet" href="code/src/leaflet/leaflet.css"/>
     <link rel="stylesheet" href="code/css/leaflet.label.css" />
     <link rel="stylesheet" href="code/css/style.css"/>
@@ -45,14 +45,13 @@
 </head>
 
 <body>
-    <div id="logo"><img src="code/img/moh.png"></div>
+    <div id="logo"><img src="code/img/moh.png" width = '200'></div>
     <header>
         <p>
         <b>Ebola Virus Disease Epidemiological Surveillance Update</b>
         <br/>Montserrado County IMS<br/>
-        <em>Republic of Liberia</em>
-        </p>
-    </header>
+        <em>Republic of Liberia</em><br/>
+<em id="last_update">Last update: 14/01/2015</em>    </header>
     <br/>
     <br/>
     <br/>
@@ -67,9 +66,7 @@
     </div>
     </br>
     <div id="wrapper">
-    <h1>Origin of the Cases Reported in MMU ETU</h1>
-        <p class="show_mapHelp"><img src="code/img/info.png">How to use the map</p>
-        <div class="map_help">
+<h1>Origin of the Cases Reported in MMU ETU</h1>        <div class="map_help">
         The map is dynamic, you can zoom in and out and pan to see other parts and move.</br>
         The default data displayed on the map are the daily data. To see data from a different day, you can move the cursor of the slider located on bottom-left corner.</br>
         To see the cumulative data, click on the button "Cumulative Data" on the top-right corner.</br>
@@ -87,7 +84,7 @@
                 zoom: 11,    
                 minZoom: 7  
             });
-
+        
          var OpenStreetMap_HOT = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
 });
@@ -96,7 +93,7 @@
         var coms = L.geoJson(communities, {
             style: function (feature) {
                 return {color: 'grey', 
-                        weight: 1,
+                        weight: 0.5,
                         fillColor: "#F5F6CE",
                         fillOpacity:0.4};
             },
@@ -119,6 +116,7 @@
                         weight: 0.7};
             }
         });
+
 
         var et = L.geoJson(etu, {
             style: function (feature) {

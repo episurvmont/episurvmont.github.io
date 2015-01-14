@@ -43,6 +43,10 @@ em { 	font-size : 16px;
 		font-style: normal;
 		/*text-shadow: black 0.1em 0.1em 0.2em*/}
 
+#last_update {
+	color: #69F;
+}		
+		
 h1 {
     font-size : 22px; 
 }
